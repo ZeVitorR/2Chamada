@@ -1,0 +1,55 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'FonteLogin';
+    src: url("../fonte/rajdhani-bold.ttf");
+}
+body{
+    background: url("../imagens/fundoLogin.png") no-repeat;
+    background-size: 100% 100%;
+ }
+ h1{
+    font-size: 60px;
+    font-family: 'FonteLogin';
+    color: white;
+}
+ h2{
+    font-size: 90px;
+    font-family: 'FonteLogin';
+    color: black;
+}
+
+/*
+#login{
+    width: 45%;
+    margin-top: 8%;
+    margin-left: 52%;
+    border-top: 7px white dashed ;
+    border-left: 7px white dashed ;
+    border-bottom: 7px white dashed ;
+    border-right: 7px white dashed ;
+    border-radius: 50px;
+}
+
+#login h3{
+    font-family: 'FonteLogin';
+    font-size: 60px;
+    color: white;
+    margin-bottom: -5%;
+    margin-left: 30%;
+}
+
+#telalogin h1{
+    font-family: 'FonteLogin';
+    font-size: 48;
+    color: white;
+}
+#l1{
+    font-family: 'FonteLogin';
+    color:white
+}
+
+
+
+button:hover{
+    background-color: lightblue;
+} */

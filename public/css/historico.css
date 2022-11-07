@@ -1,0 +1,76 @@
+@font-face {
+    font-family: 'FonteLogin';
+    src: url("../fonte/rajdhani-bold.ttf");
+}
+
+body{
+    background: url("../imagens/fundoAzul.png") no-repeat;
+    background-size: 100% 800px;
+    border-right: -10px;
+}
+
+/* button{
+    background-color:transparent;
+    border: transparent;
+    border-right:-30px;
+}*/
+
+h1{
+    font-family: 'FonteLogin';
+    font-size: 30px;
+
+}
+/*div#Busca{
+    margin-left: 65%;
+    background-color:transparent;
+    width:450px;
+    margin-top: -10%;
+  }
+button#b{
+    position: relative;
+    top:-55px;
+    left:355px;
+    margin-right: 0%;
+
+}
+#bb{
+    float:left;
+    background-color:white;
+    font-style:italic;
+    font-size:18px;
+    border-radius:15px;
+    height:39px;
+    width:400px;
+    margin-top: -10%;
+    margin-right: 0%;
+}
+img#busca{
+    position: relative;
+    top: 0px;
+    left: 0px;
+    margin-right: 0%;
+}
+  #txtBusca{
+    position:relative;
+    float:left;
+    background-color:white;
+    font-style:italic;
+    font-size:18px;
+    border-radius:15px;
+    height:32px;
+    width:400px;
+    margin-top: -10%;
+    margin-right: 0%;
+  }
+img#busca{
+    margin-top: 10px;
+    position: relative;
+    right: 100px;
+    margin-right: 0%;
+}
+#paginação{
+    position: relative;
+    top:30px;
+    left:85%;
+    margin: -2% -2% -2% -2%;
+} */
