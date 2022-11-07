@@ -81,7 +81,7 @@ h5{
     position: relative;
     top: 35px;
     margin-top: -90px;
-    margin-left: 60%;
+    margin-left: 69%;
     background-color:transparent;
     width:450px;
   }
@@ -119,10 +119,15 @@ img#busca{
 #exportar{
     width: 65px;
 }
+#opcao{
+    position:absolute;
+    top:-115%;
+    left:60%;
+}
 
 /*tabela*/
 #tabela{
-    margin: 1% auto 2.5% auto;
+    margin: 1% 2% 2.5% 2%;
 }
 #td{
     margin-left:10%;

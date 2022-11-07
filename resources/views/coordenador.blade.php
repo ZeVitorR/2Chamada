@@ -57,7 +57,22 @@
           </tr>
         </thead>
         <tbody>
-          <tr >
+            @foreach ($solicitacoes as $solicitacoe)
+                <tr >
+
+                    <th scope="row">{{$cont++}}</th>
+                    <td>{{$solicitacoe->status}}</td>
+                    <td>{{$solicitacoe->codigo}}</td>
+                    <td>{{$solicitacoe->nome}}</td>
+                    <td>{{$solicitacoe->data_solicitacao}}</td>
+                    <td>{{$solicitacoe->codigo}}</td>
+                    <td>{{$solicitacoe->disciplina}}</td>
+                    <td>{{$solicitacoe->professor}}</td>
+                    <td>{{$solicitacoe->motivo}}</td>
+
+                </tr>
+            @endforeach
+          {{-- <tr >
             <th scope="row">1</th>
             <td>Aprovado</td>
             <td>0001</td>
@@ -155,9 +170,14 @@
             <td>Metodo numerico</td>
             <td>Jean</td>
             <td>Doença</td>
-          </tr>
+
+          </tr> --}}
         </tbody>
       </table>
+
+      @can()
+
+      @endcan
         <div id ="paginação">
           <nav aria-label="...">
             <ul class="pagination pagination-sm">
