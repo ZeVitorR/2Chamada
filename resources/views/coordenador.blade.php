@@ -1,6 +1,6 @@
 <x-app-layout>
     @section('head')
-    <link rel="stylesheet" href="/css/historico.css">
+    <link rel="stylesheet" href="/css/coordenador.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     @endsection
@@ -17,8 +17,8 @@
         {{-- <button class="sair" name="sair">
           <img id="sair" src="imagens/sair.png" width="100" height="120"/>
         </button> --}}
-        <h2>CODIGO:{codigo}</h2>
-        <h3>NOME:{nomeCoordenador}</h2>
+        <h2>CODIGO:{{Auth::user()->id}}</h2>
+        <h3>NOME:{{Auth::user()->name}}</h2>
         <h1>COORDENADOR</h1>
         <button id="histo" class="historico">
           <img id="setahist" src="imagens/setahist.png" width="100" height="120"/>
@@ -31,6 +31,11 @@
     </button>
     <div id="Busca">
       <input type="text" id="txtBusca" placeholder="Buscar..."/>
+      <select id="opcao" name="opcao" class="form-select" aria-label="Default select example">
+            <option selected value="1">Professor</option>
+            <option value="2">Disciplina</option>
+            <option value="3">Curso</option>
+      </select>
       <button id="b" class="buscar">
         <img id="busca" src="imagens/busca.png" width="30"/>
       </button>

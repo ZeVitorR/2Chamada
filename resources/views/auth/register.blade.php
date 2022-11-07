@@ -50,7 +50,7 @@
                     <x-input-label for="tipo" :value="__('Tipo de usuário:')" />
                     <select id="tipo" name="tipo" class="form-select" aria-label="Default select example">
                         <option selected value="1">Coordenador</option>
-                        <option >Atendimento integrado</option>
+                        <option value="2">Atendimento integrado</option>
                     </select>
                 </div>
                 <div class="flex items-center justify-end mt-4">
