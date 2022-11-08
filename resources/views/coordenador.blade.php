@@ -1,6 +1,6 @@
 <x-app-layout>
     @section('head')
-    <link rel="stylesheet" href="/css/historico.css">
+    <link rel="stylesheet" href="/css/coordenador.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     @endsection
@@ -14,27 +14,28 @@
                 <img id="sair" src="imagens/sair.png" width="100" height="120"/>
             </button>
         </form>
-        {{-- <button class="sair" name="sair">
-          <img id="sair" src="imagens/sair.png" width="100" height="120"/>
-        </button> --}}
-        <h2>CODIGO:{codigo}</h2>
-        <h3>NOME:{nomeCoordenador}</h2>
+        <h2>CODIGO:{{Auth::user()->id}}</h2>
+        <h3>NOME:{{Auth::user()->name}}</h3>
         <h1>COORDENADOR</h1>
         <button id="histo" class="historico">
           <img id="setahist" src="imagens/setahist.png" width="100" height="120"/>
         </button>
     </div>
     <h4>SOLICITAÇÕES</h4>
-    <h5>TOTAL:{total}</h4>
+    <h5>TOTAL:{{$cont}}</h5>
     <button id="exp">
       <img id="exportar" src="imagens/exportar.png"/>
     </button>
     <div id="Busca">
       <input type="text" id="txtBusca" placeholder="Buscar..."/>
+      <select id="opcao" name="opcao" class="form-select" aria-label="Default select example">
+            <option selected value="1">Professor</option>
+            <option value="2">Disciplina</option>
+            <option value="3">Curso</option>
+      </select>
       <button id="b" class="buscar">
         <img id="busca" src="imagens/busca.png" width="30"/>
       </button>
-
     </div>
     <div id="tabela">
       <table class="table table-hover table-dark">
@@ -67,112 +68,8 @@
 
                 </tr>
             @endforeach
-          {{-- <tr >
-            <th scope="row">1</th>
-            <td>Aprovado</td>
-            <td>0001</td>
-            <td>Otto</td>
-            <td>18/08/2022</td>
-            <td>Ciencias da Computação</td>
-            <td>Metodo numerico</td>
-            <td>Jean</td>
-            <td>Doença</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Aprovado</td>
-            <td>0002</td>
-            <td>Thornton</td>
-            <td>18/08/2022</td>
-            <td>Ciencias da Computação</td>
-            <td>Metodo numerico</td>
-            <td>Jean</td>
-            <td>Doença</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Aprovado</td>
-            <td>0003</td>
-            <td>Larry the Bird</td>
-            <td>18/08/2022</td>
-            <td>Ciencias da Computação</td>
-            <td>Metodo numerico</td>
-            <td>Jean</td>
-            <td>Doença</td>
-          </tr>
-          <tr>
-            <th scope="row">4</th>
-            <td>Aprovado</td>
-            <td>0004</td>
-            <td>Larry the Bird</td>
-            <td>18/08/2022</td>
-            <td>Ciencias da Computação</td>
-            <td>Metodo numerico</td>
-            <td>Jean</td>
-            <td>Doença</td>
-          </tr>
-          <tr>
-            <th scope="row">5</th>
-            <td>Aprovado</td>
-            <td>0005</td>
-            <td>Larry the Bird</td>
-            <td>18/08/2022</td>
-            <td>Ciencias da Computação</td>
-            <td>Metodo numerico</td>
-            <td>Jean</td>
-            <td>Doença</td>
-          </tr>
-          <tr>
-            <th scope="row">6</th>
-            <td>Aprovado</td>
-            <td>0006</td>
-            <td>Larry the Bird</td>
-            <td>18/08/2022</td>
-            <td>Ciencias da Computação</td>
-            <td>Metodo numerico</td>
-            <td>Jean</td>
-            <td>Doença</td>
-          </tr>
-          <tr>
-            <th scope="row">7</th>
-            <td>Aprovado</td>
-            <td>0003</td>
-            <td>Larry the Bird</td>
-            <td>18/08/2022</td>
-            <td>Ciencias da Computação</td>
-            <td>Metodo numerico</td>
-            <td>Jean</td>
-            <td>Doença</td>
-          </tr>
-          <tr>
-            <th scope="row">8</th>
-            <td>Aprovado</td>
-            <td>0003</td>
-            <td>Larry the Bird</td>
-            <td>18/08/2022</td>
-            <td>Ciencias da Computação</td>
-            <td>Metodo numerico</td>
-            <td>Jean</td>
-            <td>Doença</td>
-          </tr>
-          <tr>
-            <th scope="row">9</th>
-            <td>Aprovado</td>
-            <td>0003</td>
-            <td>Larry the Bird</td>
-            <td>18/08/2022</td>
-            <td>Ciencias da Computação</td>
-            <td>Metodo numerico</td>
-            <td>Jean</td>
-            <td>Doença</td>
-
-          </tr> --}}
         </tbody>
       </table>
-
-      @can()
-
-      @endcan
         <div id ="paginação">
           <nav aria-label="...">
             <ul class="pagination pagination-sm">

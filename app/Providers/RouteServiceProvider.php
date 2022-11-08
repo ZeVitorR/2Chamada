@@ -7,7 +7,6 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
-use App\Models\Permission;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -19,7 +18,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-        // $permissions = Permission::Auth::user();
+
 
         public const HOME = '/coordenador';
 
