@@ -16,7 +16,8 @@ button#sair{
 div#cabecario h1{
     font-family: 'FonteLogin';
     font-size: 85px;
-    left: 33%;
+    right: auto;
+    left: auto;
     top: -1%;
     bottom: 0%;
     position:absolute;

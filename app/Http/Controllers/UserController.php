@@ -13,7 +13,9 @@ class UserController extends Controller
         $solicitacoes = Solicitacoe::all();
         $cont = 1;
 
+
         return view('coordenador',['users' => $users, 'solicitacoes'=>$solicitacoes,'cont'=>$cont]);
 
     }
+
 }

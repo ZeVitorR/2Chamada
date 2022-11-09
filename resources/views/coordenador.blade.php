@@ -16,13 +16,17 @@
         </form>
         <h2>CODIGO:{{Auth::user()->id}}</h2>
         <h3>NOME:{{Auth::user()->name}}</h3>
-        <h1>COORDENADOR</h1>
+        @can('coordenador')
+          <h1>COORDENADOR</h1>
+        @elsecan('atendimentoIntegrado')
+          <h1>ATENDIMENTO INTEGRADO</h1>
+        @endcan
         <button id="histo" class="historico">
           <img id="setahist" src="imagens/setahist.png" width="100" height="120"/>
         </button>
     </div>
     <h4>SOLICITAÇÕES</h4>
-    <h5>TOTAL:{{$cont}}</h5>
+    <h5>TOTAL:3</h5>
     <button id="exp">
       <img id="exportar" src="imagens/exportar.png"/>
     </button>
