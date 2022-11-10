@@ -5,25 +5,31 @@
 
     @endsection
     <div id="cabecario">
+      <div class="container2 teste2">
         <form method="POST" action="{{ route('logout') }}">
             @csrf
 
-            <button class="sair" name="sair":href="route('logout')"
-                    onclick="event.preventDefault();
-                                this.closest('form').submit();">
-                <img id="sair" src="imagens/sair.png" width="100" height="120"/>
-            </button>
+            <div class="item">
+              <button class="sair" name="sair":href="route('logout')"
+                  onclick="event.preventDefault();
+                  this.closest('form').submit();">
+                  <img id="sair" src="imagens/sair.png" width="100" height="120"/>
+              </button>
+            </div>
         </form>
-        <h2>CODIGO:{{Auth::user()->id}}</h2>
-        <h3>NOME:{{Auth::user()->name}}</h3>
-        @can('coordenador')
-          <h1>COORDENADOR</h1>
-        @elsecan('atendimentoIntegrado')
-          <h1>ATENDIMENTO INTEGRADO</h1>
-        @endcan
-        <button id="histo" class="historico">
-          <img id="setahist" src="imagens/setahist.png" width="100" height="120"/>
-        </button>
+          @can('coordenador')
+            <div class="item hteste"><h1 class="coord">COORDENADOR</h1></div>
+          @elsecan('atendimentoIntegrado')
+            <div class="item"><h1>ATENDIMENTO INTEGRADO</h1></div>
+          @endcan
+          {{-- <div class="item hteste"><h2>CODIGO:{{Auth::user()->id}}</h2></div>
+          <div class="item hteste"><h3>NOME:{{Auth::user()->name}}</h3></div> --}}
+          <div class="item">
+            <button id="histo" class="historico">
+              <img id="setahist" src="imagens/setahist.png" width="100" height="120"/>
+            </button>
+          </div>
+      </div>
     </div>
     <h4>SOLICITAÇÕES</h4>
     <h5>TOTAL:3</h5>

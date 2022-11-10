@@ -7,13 +7,13 @@
 div#cabecario{
     border-bottom: 3px black solid;
 }
-button#sair{
+/* button#sair{
     margin-left: 0px;
     margin-top: 0px;
     margin-bottom: 0%;
     margin-right: 0%;
-}
-div#cabecario h1{
+} */
+/* div#cabecario h1{
     font-family: 'FonteLogin';
     font-size: 85px;
     right: auto;
@@ -22,23 +22,23 @@ div#cabecario h1{
     bottom: 0%;
     position:absolute;
     margin-right: 0%;
-}
-div#cabecario h2{
+} */
+/* div#cabecario h2{
     font-family: 'FonteLogin';
     font-size: 28px;
     left: 10%;
     top: 8%;
     position:absolute;
 
-}
-div#cabecario h3{
+} */
+/* div#cabecario h3{
     font-family: 'FonteLogin';
     font-size: 28px;
     left: 10%;
     top: 12%;
     position:absolute;
     margin-bottom: 2%;
-}
+} */
 button{
     background-color: transparent;
     border-color: transparent;
@@ -139,4 +139,30 @@ img#busca{
     top:30px;
     left:85%;
     margin: -2% -2% -2% -2%;
+}
+/* .coord{
+    display: flex;
+    justify-content: center;
+
+} */
+
+.container2{
+    display: flex;
+    /* margin-top: 20px; */
+
+}
+.teste2{
+    justify-content: space-between;
+
+}
+
+.item {
+	margin: 5px;
+	padding: 0 10px;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+.hteste{
+    margin-top: 35px;
 }
