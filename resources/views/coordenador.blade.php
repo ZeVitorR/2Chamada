@@ -40,10 +40,10 @@
       </div>
     </div>
     @can('atendimentoIntegrado')
-        <form method="GET" action="{{ route('historico') }}">
+        <form method="GET" action="{{ route('formulario') }}">
             @csrf
             <div class="item">
-                <button id="isoli" class="isoli" name="isoli" :href="route('cadastro')"
+                <button id="isoli" class="isoli" name="isoli" :href="route('formulario')"
                     onclick="event.preventDefault();
                     this.closest('form').submit();">
                 <label class="InserirSolicitação" for="isoli">Inserir Solicitação</label>
@@ -79,6 +79,7 @@
             <th scope="col">Codigo</th>
             <th scope="col">Nome</th>
             <th scope="col">Data da Solicitação</th>
+            <th scope="col">Periodo</th>
             <th scope="col">Curso</th>
             <th scope="col">Disciplina</th>
             <th scope="col">Professor</th>
@@ -94,6 +95,7 @@
                     <td>{{$solicitacoe->codigo}}</td>
                     <td>{{$solicitacoe->nome}}</td>
                     <td>{{$solicitacoe->dataSolicitacao}}</td>
+                    <td>{{$solicitacoe->periodo}}</td>
                     <td>{{$solicitacoe->curso}}</td>
                     <td>{{$solicitacoe->disciplina}}</td>
                     <td>{{$solicitacoe->professor}}</td>

@@ -7,10 +7,15 @@
     <div class="container text-center">
         <div class="row align-items-start">
           <div class="col">
-            <button id="Voltar" class="back">
-                <img id="volta" src="imagens/voltar.png"  />
-                <label class="voltar" for="Voltar">Voltar</label>
-            </button>
+            <form method="GET" action="{{ route('inicial') }}">
+                @csrf
+                <button id="Voltar" class="back":href="route('inicial')"
+                onclick="event.preventDefault();
+                this.closest('form').submit();">
+                    <img id="volta" src="imagens/voltar.png"  />
+                    <label class="voltar" for="Voltar">Voltar</label>
+                </button>
+            </form>
           </div>
           <div class="col">
                 <h1>HISTORICO</h1>

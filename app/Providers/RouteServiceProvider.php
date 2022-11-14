@@ -21,6 +21,7 @@ class RouteServiceProvider extends ServiceProvider
 
 
         public const HOME = '/2Chamada';
+        public const CADASTRO = '/formulario';
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.

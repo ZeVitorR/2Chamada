@@ -8,7 +8,9 @@
 
             <form method="POST" action="{{ route('login') }}">
                 @csrf
-
+                <div class="flex justify-center  ">
+                    <p class="text-2xl font-bold"> LOGIN</p>
+                </div>
                 <!-- Email Address -->
                 <div>
                     <x-input-label for="email" :value="__('Email')" />
