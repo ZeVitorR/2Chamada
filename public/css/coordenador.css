@@ -59,7 +59,7 @@ button{
 
 /*corpo*/
 body{
-    background: url("../imagens/fundoAzul.png") no-repeat;
+    background: url("../imagens/fundoAzul.jpg") no-repeat;
     background-size: 100% 800px;
 }
 h4{
@@ -165,4 +165,23 @@ img#busca{
 
 .hteste{
     margin-top: 35px;
+}
+
+.sairLabel{
+    font-size: 20px;
+    margin-top: -30px;
+}
+#sair{
+    width:  60px;
+    height: 60px;
+}
+
+#setahist{
+    width:  60px;
+    height: 60px;
+}
+.histLabel{
+    font-size: 20px;
+
+
 }

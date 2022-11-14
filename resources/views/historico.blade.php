@@ -1,21 +1,40 @@
 <x-app-layout>
     @section('head')
-    <link rel="stylesheet" href="/css/coordenador.css">
+    <link rel="stylesheet" href="/css/historico.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     @endsection
-    <button id="Voltar" class="back">
-        <img id="volta" src="imagens/voltar.png" width="70%" />
-    </button>
-    <h1>HISTORICO</h1>
+    <div class="container text-center">
+        <div class="row align-items-start">
+          <div class="col">
+            <button id="Voltar" class="back">
+                <img id="volta" src="imagens/voltar.png"  />
+                <label class="voltar" for="Voltar">Voltar</label>
+            </button>
+          </div>
+          <div class="col">
+                <h1>HISTORICO</h1>
+          </div>
+          <div class="col">
+            <div id="Busca">
+                <form action="/historico" method="GET">
+                  <input type="text" id="txtBusca" name="busca" placeholder="Buscar..."/>
+                  <select id="opcao" name="opcao" class="form-select" aria-label="Default select example">
+                        <option selected value="1">Professor</option>
+                        <option value="2">Disciplina</option>
+                        <option value="3">Curso</option>
+                  </select>
 
-    <div id="Busca">
-        <input  id="txtBusca" placeholder="Buscar..."/>
-        <button id="b" class="buscar">
-          <img id="busca" src="imagens/busca.png" width="30"/>
-        </button>
-
+                  <button type="submit" id="b" class="buscar">
+                    <img id="busca" src="imagens/busca.png" width="30"/>
+                  </button>
+                </form>
+            </div>
+          </div>
+        </div>
     </div>
+
+
     <div id="tabela">
       <table class="table table-hover table-dark">
         <thead>
@@ -25,112 +44,28 @@
             <th scope="col">Codigo</th>
             <th scope="col">Nome</th>
             <th scope="col">Data da Solicitação</th>
+            <th scope="col">Curso</th>
             <th scope="col">Disciplina</th>
             <th scope="col">Professor</th>
             <th scope="col">Motivo</th>
           </tr>
         </thead>
         <tbody>
-          <tr >
-            <th scope="row">1</th>
-            <td>Aprovado</td>
-            <td>0001</td>
-            <td>Otto</td>
-            <td>18/08/2022</td>
-            <td>Metodo numerico</td>
-            <td>Jean</td>
-            <td>Doença</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Aprovado</td>
-            <td>0002</td>
-            <td>Thornton</td>
-            <td>18/08/2022</td>
-            <td>Metodo numerico</td>
-            <td>Jean</td>
-            <td>Doença</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Aprovado</td>
-            <td>0003</td>
-            <td>Larry the Bird</td>
-            <td>18/08/2022</td>
-            <td>Metodo numerico</td>
-            <td>Jean</td>
-            <td>Doença</td>
-          </tr>
-          <tr>
-            <th scope="row">4</th>
-            <td>Aprovado</td>
-            <td>0004</td>
-            <td>Larry the Bird</td>
-            <td>18/08/2022</td>
-            <td>Metodo numerico</td>
-            <td>Jean</td>
-            <td>Doença</td>
-          </tr>
-          <tr>
-            <th scope="row">5</th>
-            <td>Aprovado</td>
-            <td>0005</td>
-            <td>Larry the Bird</td>
-            <td>18/08/2022</td>
-            <td>Metodo numerico</td>
-            <td>Jean</td>
-            <td>Doença</td>
-          </tr>
-          <tr>
-            <th scope="row">6</th>
-            <td>Aprovado</td>
-            <td>0006</td>
-            <td>Larry the Bird</td>
-            <td>18/08/2022</td>
-            <td>Metodo numerico</td>
-            <td>Jean</td>
-            <td>Doença</td>
-          </tr>
-          <tr>
-            <th scope="row">7</th>
-            <td>Aprovado</td>
-            <td>0007</td>
-            <td>Larry the Bird</td>
-            <td>18/08/2022</td>
-            <td>Metodo numerico</td>
-            <td>Jean</td>
-            <td>Doença</td>
-          </tr>
-          <tr>
-            <th scope="row">8</th>
-            <td>Aprovado</td>
-            <td>0008</td>
-            <td>Larry the Bird</td>
-            <td>18/08/2022</td>
-            <td>Metodo numerico</td>
-            <td>Jean</td>
-            <td>Doença</td>
-          </tr>
-          <tr>
-            <th scope="row">9</th>
-            <td>Aprovado</td>
-            <td>0009</td>
-            <td>Larry the Bird</td>
-            <td>18/08/2022</td>
-            <td>Metodo numerico</td>
-            <td>Jean</td>
-            <td>Doença</td>
-          </tr>
-          <tr>
-            <th scope="row">10</th>
-            <td>Aprovado</td>
-            <td>0010</td>
-            <td>Larry the Bird</td>
-            <td>18/08/2022</td>
-            <td>Metodo numerico</td>
-            <td>Jean</td>
-            <td>Doença</td>
-          </tr>
+            @foreach ($solicitacoes as $solicitacoe)
+            <tr >
+
+                <th scope="row">{{$cont++}}</th>
+                <td>{{$solicitacoe->status}}</td>
+                <td>{{$solicitacoe->codigo}}</td>
+                <td>{{$solicitacoe->nome}}</td>
+                <td>{{$solicitacoe->dataSolicitacao}}</td>
+                <td>{{$solicitacoe->curso}}</td>
+                <td>{{$solicitacoe->disciplina}}</td>
+                <td>{{$solicitacoe->professor}}</td>
+                <td>{{$solicitacoe->motivo}}</td>
+
+            </tr>
+        @endforeach
         </tbody>
       </table>
         <div id ="paginação">

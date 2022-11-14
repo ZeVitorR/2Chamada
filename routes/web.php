@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\usuarioController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,8 +20,9 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/coordenador', [UserController::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');
-Route::get('/historico', function( ){return view('historico');})->middleware(['auth', 'verified'])->name('historico');
+Route::get('/2Chamada', [UserController::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/historico', [usuarioController::class,'index'])->name('historico');
 require __DIR__.'/auth.php';
+Route::get('/formulario', function(){return view('cadastro');});
 
 // ROUTE::get('/',[NavigationController::class, 'home'])->name('home');

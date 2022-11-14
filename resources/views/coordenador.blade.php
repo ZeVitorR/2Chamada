@@ -13,9 +13,11 @@
               <button class="sair" name="sair":href="route('logout')"
                   onclick="event.preventDefault();
                   this.closest('form').submit();">
-                  <img id="sair" src="imagens/sair.png" width="100" height="120"/>
+                  <img id="sair" src="imagens/sair.png" width="100" height="120"/> <br>
+                  <label class="sairLabel" for="Sair">Sair</label>
               </button>
             </div>
+
         </form>
           @can('coordenador')
             <div class="item hteste"><h1 class="coord">COORDENADOR</h1></div>
@@ -24,28 +26,49 @@
           @endcan
           {{-- <div class="item hteste"><h2>CODIGO:{{Auth::user()->id}}</h2></div>
           <div class="item hteste"><h3>NOME:{{Auth::user()->name}}</h3></div> --}}
-          <div class="item">
-            <button id="histo" class="historico">
-              <img id="setahist" src="imagens/setahist.png" width="100" height="120"/>
-            </button>
-          </div>
+        <form method="GET" action="{{ route('historico') }}">
+            @csrf
+            <div class="item">
+                <button id="histo" class="historico" name="histo" :href="route('historico')"
+                    onclick="event.preventDefault();
+                    this.closest('form').submit();">
+                    <img id="setahist" src="imagens/setahist.png" width="100" height="120"/>
+                <label class="histLabel" for="Historico">Historico</label>
+                </button>
+            </div>
+        </form>
       </div>
     </div>
+    @can('atendimentoIntegrado')
+        <form method="GET" action="{{ route('historico') }}">
+            @csrf
+            <div class="item">
+                <button id="isoli" class="isoli" name="isoli" :href="route('cadastro')"
+                    onclick="event.preventDefault();
+                    this.closest('form').submit();">
+                <label class="InserirSolicitação" for="isoli">Inserir Solicitação</label>
+                </button>
+            </div>
+        </form>
+    @endcan
     <h4>SOLICITAÇÕES</h4>
-    <h5>TOTAL:3</h5>
+    <h5>TOTAL:{{$total}}</h5>
     <button id="exp">
       <img id="exportar" src="imagens/exportar.png"/>
     </button>
     <div id="Busca">
-      <input type="text" id="txtBusca" placeholder="Buscar..."/>
-      <select id="opcao" name="opcao" class="form-select" aria-label="Default select example">
-            <option selected value="1">Professor</option>
-            <option value="2">Disciplina</option>
-            <option value="3">Curso</option>
-      </select>
-      <button id="b" class="buscar">
-        <img id="busca" src="imagens/busca.png" width="30"/>
-      </button>
+      <form action="/2Chamada" method="GET">
+        <input type="text" id="txtBusca" name="busca" placeholder="Buscar..."/>
+        <select id="opcao" name="opcao" class="form-select" aria-label="Default select example">
+              <option selected value="1">Professor</option>
+              <option value="2">Disciplina</option>
+              <option value="3">Curso</option>
+        </select>
+
+        <button type="submit" id="b" class="buscar">
+          <img id="busca" src="imagens/busca.png" width="30"/>
+        </button>
+      </form>
     </div>
     <div id="tabela">
       <table class="table table-hover table-dark">
@@ -70,8 +93,8 @@
                     <td>{{$solicitacoe->status}}</td>
                     <td>{{$solicitacoe->codigo}}</td>
                     <td>{{$solicitacoe->nome}}</td>
-                    <td>{{$solicitacoe->data_solicitacao}}</td>
-                    <td>{{$solicitacoe->codigo}}</td>
+                    <td>{{$solicitacoe->dataSolicitacao}}</td>
+                    <td>{{$solicitacoe->curso}}</td>
                     <td>{{$solicitacoe->disciplina}}</td>
                     <td>{{$solicitacoe->professor}}</td>
                     <td>{{$solicitacoe->motivo}}</td>

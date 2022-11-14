@@ -4,66 +4,52 @@
 }
 
 body{
-    background: url("../imagens/fundoAzul.png") no-repeat;
+    background: url("../imagens/fundoAzul.jpg") no-repeat;
     background-size: 100% 800px;
     border-right: -10px;
 }
 
-/* button{
+button{
     background-color:transparent;
     border: transparent;
     border-right:-30px;
-}*/
-
-h1{
-    font-family: 'FonteLogin';
-    font-size: 30px;
-
 }
-/*div#Busca{
+.voltar{
+    font-size: 20px;
+    margin-top: 30%;
+}
+
+div#Busca{
     margin-left: 65%;
     background-color:transparent;
-    width:450px;
-    margin-top: -10%;
+    margin-top: 8%;
   }
 button#b{
     position: relative;
-    top:-55px;
-    left:355px;
+    top: -32px;
+    left:310px;
     margin-right: 0%;
 
 }
-#bb{
-    float:left;
-    background-color:white;
-    font-style:italic;
-    font-size:18px;
-    border-radius:15px;
-    height:39px;
-    width:400px;
-    margin-top: -10%;
-    margin-right: 0%;
-}
+
 img#busca{
-    position: relative;
-    top: 0px;
+    position: absolute;
+    margin-top: -10%;
     left: 0px;
     margin-right: 0%;
 }
   #txtBusca{
     position:relative;
-    float:left;
-    background-color:white;
     font-style:italic;
     font-size:18px;
     border-radius:15px;
     height:32px;
     width:400px;
-    margin-top: -10%;
-    margin-right: 0%;
+    /* margin-top: 0%;
+    margin-right: 0%; */
   }
 img#busca{
-    margin-top: 10px;
+    margin-top: 0px;
     position: relative;
     right: 100px;
     margin-right: 0%;
@@ -73,4 +59,17 @@ img#busca{
     top:30px;
     left:85%;
     margin: -2% -2% -2% -2%;
-} */
+}
+#tabela{
+    margin-top: 0%;
+}
+.back{
+    margin-left: -200%;
+}
+.form-select{
+    position: fixed;
+    top:4.5%;
+    left: 90%;
+}
+
+

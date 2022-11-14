@@ -20,7 +20,7 @@ class RouteServiceProvider extends ServiceProvider
      */
 
 
-        public const HOME = '/coordenador';
+        public const HOME = '/2Chamada';
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.
