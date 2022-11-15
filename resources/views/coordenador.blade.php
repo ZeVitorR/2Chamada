@@ -1,5 +1,6 @@
 <x-app-layout>
     @section('head')
+    <meta charset="utf-8">
     <link rel="stylesheet" href="/css/coordenador.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -53,9 +54,14 @@
     @endcan
     <h4>SOLICITAÇÕES</h4>
     <h5>TOTAL:{{$total}}</h5>
-    <button id="exp">
-      <img id="exportar" src="imagens/exportar.png"/>
-    </button>
+    <form action="/excel" method="post">
+        @csrf
+        <button id="exp" value=1 class="exp" name="exp" :href="{{ route('excel') }}"
+            onclick="event.preventDefault();
+            this.closest('form').submit();">
+            <img id="exportar" src="imagens/exportar.png"/>
+        </button>
+    </form>
     <div id="Busca">
       <form action="/2Chamada" method="GET">
         <input type="text" id="txtBusca" name="busca" placeholder="Buscar..."/>
@@ -78,7 +84,7 @@
             <th scope="col">Status</th>
             <th scope="col">Codigo</th>
             <th scope="col">Nome</th>
-            <th scope="col">Data da Solicitação</th>
+            <th scope="col">Data da Prova Perdida</th>
             <th scope="col">Periodo</th>
             <th scope="col">Curso</th>
             <th scope="col">Disciplina</th>
