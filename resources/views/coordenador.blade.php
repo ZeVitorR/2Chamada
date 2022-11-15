@@ -89,7 +89,6 @@
         <tbody>
             @foreach ($solicitacoes as $solicitacoe)
                 <tr >
-
                     <th scope="row">{{$cont++}}</th>
                     <td>{{$solicitacoe->status}}</td>
                     <td>{{$solicitacoe->codigo}}</td>
