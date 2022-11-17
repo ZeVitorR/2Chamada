@@ -28,5 +28,5 @@ Route::get('/historico', [usuarioController::class,'index'])->name('historico');
 require __DIR__.'/auth.php';
 Route::get('/formulario', [cadastroController::class,'index'])->name('formulario');
 Route::post('/envio',[cadastroController::class,'store'])->name('envio');
-Route::post('/excel',[excelController::class,'exportaExcel'])->name('excel');
+Route::get('/excel',[UserController::class,'exportaExcel'])->name('excel');
 // ROUTE::get('/envio',[NavigationController::class, 'home'])->name('home');

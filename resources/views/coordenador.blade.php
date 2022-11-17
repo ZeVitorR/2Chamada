@@ -54,9 +54,9 @@
     @endcan
     <h4>SOLICITAÇÕES</h4>
     <h5>TOTAL:{{$total}}</h5>
-    <form action="/excel" method="post">
+    <form action="/excel" method="get">
         @csrf
-        <button id="exp" value=1 class="exp" name="exp" :href="{{ route('excel') }}"
+        <button id="exp" value="1" class="exp" name="exp" :href="{{ route('excel') }}"
             onclick="event.preventDefault();
             this.closest('form').submit();">
             <img id="exportar" src="imagens/exportar.png"/>

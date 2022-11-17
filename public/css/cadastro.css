@@ -2,3 +2,40 @@ body{
     background: url("../imagens/fundoAzul.jpg") no-repeat;
     background-size: 100% 800px;
 }
+.flex{
+
+    display: flex;
+}
+
+.container {
+
+	margin: 0 auto;
+	border: 1px solid #ccc;
+}
+
+/* .container {
+	max-width: 600px;
+	margin: 0 auto;
+	display: flex;
+	border: 1px solid #ccc;
+} */
+
+.item {
+	margin: 5px;
+	background: tomato;
+	text-align: center;
+	font-size: 1.5em;
+    flex-direction: row;
+}
+
+/* .item {
+
+	flex: 2;
+	margin: 5px;
+	background: tomato;
+	text-align: center;
+	font-size: 1.5em;
+} */
+.wrap {
+	flex-wrap: wrap;
+}

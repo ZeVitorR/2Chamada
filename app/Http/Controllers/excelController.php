@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\DB;
 class excelController extends Controller
 {
     public function exportaExcel(){
+        $busca = request('busca');
+        $prof = request('opcao');
+        dd($busca);
         ini_set('default_charset', 'UTF-8');
         setlocale(LC_ALL,'pt_BR.UTF8');
         mb_internal_encoding('UTF8');
@@ -84,35 +87,24 @@ class excelController extends Controller
         }else{
             if( $mes<=06){
                 $solicitacoes = Solicitacoe::whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->get();
-                $total = Solicitacoe::whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->count();
-                $busca = request('busca');
-                $prof = request('opcao');
+
 
                 if($busca && $prof == 1){
                     $solicitacoes = Solicitacoe::where(
                         'professor', 'like', '%'.$busca.'%'
                         )->whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->get();
-                    $total = Solicitacoe::where(
-                        'professor', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->count();
+
                 }else if ($busca && $prof == 2){
                     $solicitacoes = Solicitacoe::where(
                         'disciplina', 'like', '%'.$busca.'%'
                         )->whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->get();
-                    $total = Solicitacoe::where(
-                        'disciplina', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->count();
                 }else if ($busca && $prof == 3){
                     $solicitacoes = Solicitacoe::where(
                         'curso', 'like', '%'.$busca.'%'
                         )->whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->get();
-                    $total = Solicitacoe::where(
-                        'curso', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->count();
                 }
             }else{
                 $solicitacoes = Solicitacoe::whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->get();
-                $total = Solicitacoe::whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->count();
                 $busca = request('busca');
                 $prof = request('opcao');
 
@@ -120,23 +112,14 @@ class excelController extends Controller
                     $solicitacoes = Solicitacoe::where(
                         'professor', 'like', '%'.$busca.'%'
                         )->whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->get();
-                    $total= Solicitacoe::where(
-                        'professor', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->count();
                 }else if ($busca && $prof == 2){
                     $solicitacoes = Solicitacoe::where(
                         'disciplina', 'like', '%'.$busca.'%'
                         )->whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->get();
-                    $total = Solicitacoe::where(
-                        'disciplina', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->count();
                 }else if ($busca && $prof == 3){
                     $solicitacoes = Solicitacoe::where(
                         'curso', 'like', '%'.$busca.'%'
                         )->whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->get();
-                    $total = Solicitacoe::where(
-                        'curso', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->count();
                 }
             }
         }
