@@ -21,122 +21,122 @@ class UserController extends Controller
         $hoje = explode("/",$hoje);
         list($ano,$mes,$dia) = $hoje;
         $mes = (int)$mes;
-        if($tipo == 2){
+        if($tipo == 1){
             if( $mes<=06)
-                $solicitacoes = Solicitacoe::where('idCoordenador', $id)->whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->get();
-                $total = Solicitacoe::where('idCoordenador', $id)->whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->count();
+                $solicitacoes = Solicitacoe::where('idCoordenador', $id)->whereBetween('data_solicitacao',["$ano-01-01","$ano-06-30"])->get();
+                $total = Solicitacoe::where('idCoordenador', $id)->whereBetween('data_solicitacao',["$ano-01-01","$ano-06-30"])->count();
                 $busca = request('busca');
                 $prof = request('opcao');
 
                 if($busca && $prof == 1){
                     $solicitacoes = Solicitacoe::where(
                         'professor', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->get();
+                        )->whereBetween('data_solicitacao',["$ano-01-01","$ano-06-30"])->get();
                     $total = Solicitacoe::where(
                         'professor', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->count();
+                        )->whereBetween('data_solicitacao',["$ano-01-01","$ano-06-30"])->count();
                 }else if ($busca && $prof == 2){
                     $solicitacoes = Solicitacoe::where(
                         'disciplina', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->get();
+                        )->whereBetween('data_solicitacao',["$ano-01-01","$ano-06-30"])->get();
                     $total = Solicitacoe::where(
                         'disciplina', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->count();
+                        )->whereBetween('data_solicitacao',["$ano-01-01","$ano-06-30"])->count();
 
                 }else if ($busca && $prof == 3){
                     $solicitacoes = Solicitacoe::where(
                         'curso', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->get();
+                        )->whereBetween('data_solicitacao',["$ano-01-01","$ano-06-30"])->get();
                     $total = Solicitacoe::where(
                         'curso', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->count();
+                        )->whereBetween('data_solicitacao',["$ano-01-01","$ano-06-30"])->count();
                 }
             elseif($mes>6){
-                $solicitacoes = Solicitacoe::where('idCoordenador', $id)->whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->get();
-                $total = Solicitacoe::where('idCoordenador', $id)->whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->count();
+                $solicitacoes = Solicitacoe::where('idCoordenador', $id)->whereBetween('data_solicitacao',["$ano-07-01","$ano-12-31"])->get();
+                $total = Solicitacoe::where('idCoordenador', $id)->whereBetween('data_solicitacao',["$ano-07-01","$ano-12-31"])->count();
                 $busca = request('busca');
                 $prof = request('opcao');
 
                 if($busca && $prof == 1){
                     $solicitacoes = Solicitacoe::where(
                         'professor', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->get();
+                        )->whereBetween('data_solicitacao',["$ano-07-01","$ano-12-31"])->get();
                     $total = Solicitacoe::where(
                         'professor', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->count();
+                        )->whereBetween('data_solicitacao',["$ano-07-01","$ano-12-31"])->count();
                 }else if ($busca && $prof == 2){
                     $solicitacoes = Solicitacoe::where(
                         'disciplina', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->get();
+                        )->whereBetween('data_solicitacao',["$ano-07-01","$ano-12-31"])->get();
                     $total = Solicitacoe::where(
                         'disciplina', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->count();
+                        )->whereBetween('data_solicitacao',["$ano-07-01","$ano-12-31"])->count();
 
                 }else if ($busca && $prof == 3){
                     $solicitacoes = Solicitacoe::where(
                         'curso', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->get();
+                        )->whereBetween('data_solicitacao',["$ano-07-01","$ano-12-31"])->get();
                     $total = Solicitacoe::where(
                         'curso', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->count();
+                        )->whereBetween('data_solicitacao',["$ano-07-01","$ano-12-31"])->count();
                 }
             }
         }else{
             if( $mes<=06){
-                $solicitacoes = Solicitacoe::whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->get();
-                $total = Solicitacoe::whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->count();
+                $solicitacoes = Solicitacoe::whereBetween('data_solicitacao',["$ano-01-01","$ano-06-30"])->get();
+                $total = Solicitacoe::whereBetween('data_solicitacao',["$ano-01-01","$ano-06-30"])->count();
                 $busca = request('busca');
                 $prof = request('opcao');
 
                 if($busca && $prof == 1){
                     $solicitacoes = Solicitacoe::where(
                         'professor', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->get();
+                        )->whereBetween('data_solicitacao',["$ano-01-01","$ano-06-30"])->get();
                     $total = Solicitacoe::where(
                         'professor', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->count();
+                        )->whereBetween('data_solicitacao',["$ano-01-01","$ano-06-30"])->count();
                 }else if ($busca && $prof == 2){
                     $solicitacoes = Solicitacoe::where(
                         'disciplina', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->get();
+                        )->whereBetween('data_solicitacao',["$ano-01-01","$ano-06-30"])->get();
                     $total = Solicitacoe::where(
                         'disciplina', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->count();
+                        )->whereBetween('data_solicitacao',["$ano-01-01","$ano-06-30"])->count();
                 }else if ($busca && $prof == 3){
                     $solicitacoes = Solicitacoe::where(
                         'curso', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->get();
+                        )->whereBetween('data_solicitacao',["$ano-01-01","$ano-06-30"])->get();
                     $total = Solicitacoe::where(
                         'curso', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->count();
+                        )->whereBetween('data_solicitacao',["$ano-01-01","$ano-06-30"])->count();
                 }
             }else{
-                $solicitacoes = Solicitacoe::whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->get();
-                $total = Solicitacoe::whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->count();
+                $solicitacoes = Solicitacoe::whereBetween('data_solicitacao',["$ano-07-01","$ano-12-31"])->get();
+                $total = Solicitacoe::whereBetween('data_solicitacao',["$ano-07-01","$ano-12-31"])->count();
                 $busca = request('busca');
                 $prof = request('opcao');
 
                 if($busca && $prof == 1){
                     $solicitacoes = Solicitacoe::where(
                         'professor', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->get();
+                        )->whereBetween('data_solicitacao',["$ano-07-01","$ano-12-31"])->get();
                     $total= Solicitacoe::where(
                         'professor', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->count();
+                        )->whereBetween('data_solicitacao',["$ano-07-01","$ano-12-31"])->count();
                 }else if ($busca && $prof == 2){
                     $solicitacoes = Solicitacoe::where(
                         'disciplina', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->get();
+                        )->whereBetween('data_solicitacao',["$ano-07-01","$ano-12-31"])->get();
                     $total = Solicitacoe::where(
                         'disciplina', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->count();
+                        )->whereBetween('data_solicitacao',["$ano-07-01","$ano-12-31"])->count();
                 }else if ($busca && $prof == 3){
                     $solicitacoes = Solicitacoe::where(
                         'curso', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->get();
+                        )->whereBetween('data_solicitacao',["$ano-07-01","$ano-12-31"])->get();
                     $total = Solicitacoe::where(
                         'curso', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->count();
+                        )->whereBetween('data_solicitacao',["$ano-07-01","$ano-12-31"])->count();
                 }
             }
         }
@@ -165,94 +165,94 @@ class UserController extends Controller
         $prof = request('opcao');
         if($tipo == 2){
             if( $mes<=06)
-                $solicitacoes = Solicitacoe::where('idCoordenador', $id)->whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->get();
-                $total = Solicitacoe::where('idCoordenador', $id)->whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->count();
+                $solicitacoes = Solicitacoe::where('idCoordenador', $id)->whereBetween('data_solicitacao',["$ano-01-01","$ano-06-30"])->get();
+                $total = Solicitacoe::where('idCoordenador', $id)->whereBetween('data_solicitacao',["$ano-01-01","$ano-06-30"])->count();
 
                 if($busca && $prof == 1){
                     $solicitacoes = Solicitacoe::where(
                         'professor', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->get();
+                        )->whereBetween('data_solicitacao',["$ano-01-01","$ano-06-30"])->get();
                     $total = Solicitacoe::where(
                         'professor', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->count();
+                        )->whereBetween('data_solicitacao',["$ano-01-01","$ano-06-30"])->count();
                 }else if ($busca && $prof == 2){
                     $solicitacoes = Solicitacoe::where(
                         'disciplina', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->get();
+                        )->whereBetween('data_solicitacao',["$ano-01-01","$ano-06-30"])->get();
                     $total = Solicitacoe::where(
                         'disciplina', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->count();
+                        )->whereBetween('data_solicitacao',["$ano-01-01","$ano-06-30"])->count();
 
                 }else if ($busca && $prof == 3){
                     $solicitacoes = Solicitacoe::where(
                         'curso', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->get();
+                        )->whereBetween('data_solicitacao',["$ano-01-01","$ano-06-30"])->get();
                     $total = Solicitacoe::where(
                         'curso', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->count();
+                        )->whereBetween('data_solicitacao',["$ano-01-01","$ano-06-30"])->count();
                 }
             elseif($mes>6){
-                $solicitacoes = Solicitacoe::where('idCoordenador', $id)->whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->get();
-                $total = Solicitacoe::where('idCoordenador', $id)->whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->count();
+                $solicitacoes = Solicitacoe::where('idCoordenador', $id)->whereBetween('data_solicitacao',["$ano-07-01","$ano-12-31"])->get();
+                $total = Solicitacoe::where('idCoordenador', $id)->whereBetween('data_solicitacao',["$ano-07-01","$ano-12-31"])->count();
 
                 if($busca && $prof == 1){
                     $solicitacoes = Solicitacoe::where(
                         'professor', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->get();
+                        )->whereBetween('data_solicitacao',["$ano-07-01","$ano-12-31"])->get();
                     $total = Solicitacoe::where(
                         'professor', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->count();
+                        )->whereBetween('data_solicitacao',["$ano-07-01","$ano-12-31"])->count();
                 }else if ($busca && $prof == 2){
                     $solicitacoes = Solicitacoe::where(
                         'disciplina', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->get();
+                        )->whereBetween('data_solicitacao',["$ano-07-01","$ano-12-31"])->get();
                     $total = Solicitacoe::where(
                         'disciplina', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->count();
+                        )->whereBetween('data_solicitacao',["$ano-07-01","$ano-12-31"])->count();
 
                 }else if ($busca && $prof == 3){
                     $solicitacoes = Solicitacoe::where(
                         'curso', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->get();
+                        )->whereBetween('data_solicitacao',["$ano-07-01","$ano-12-31"])->get();
                     $total = Solicitacoe::where(
                         'curso', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->count();
+                        )->whereBetween('data_solicitacao',["$ano-07-01","$ano-12-31"])->count();
                 }
             }
         }else{
             if( $mes<=06){
-                $solicitacoes = Solicitacoe::whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->get();
+                $solicitacoes = Solicitacoe::whereBetween('data_solicitacao',["$ano-01-01","$ano-06-30"])->get();
 
 
                 if($busca && $prof == 1){
                     $solicitacoes = Solicitacoe::where(
                         'professor', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->get();
+                        )->whereBetween('data_solicitacao',["$ano-01-01","$ano-06-30"])->get();
 
                 }else if ($busca && $prof == 2){
                     $solicitacoes = Solicitacoe::where(
                         'disciplina', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->get();
+                        )->whereBetween('data_solicitacao',["$ano-01-01","$ano-06-30"])->get();
                 }else if ($busca && $prof == 3){
                     $solicitacoes = Solicitacoe::where(
                         'curso', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-01-01","$ano-06-30"])->get();
+                        )->whereBetween('data_solicitacao',["$ano-01-01","$ano-06-30"])->get();
                 }
             }else{
-                $solicitacoes = Solicitacoe::whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->get();
+                $solicitacoes = Solicitacoe::whereBetween('data_solicitacao',["$ano-07-01","$ano-12-31"])->get();
 
                 if($busca && $prof == 1){
                     $solicitacoes = Solicitacoe::where(
                         'professor', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->get();
+                        )->whereBetween('data_solicitacao',["$ano-07-01","$ano-12-31"])->get();
                 }else if ($busca && $prof == 2){
                     $solicitacoes = Solicitacoe::where(
                         'disciplina', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->get();
+                        )->whereBetween('data_solicitacao',["$ano-07-01","$ano-12-31"])->get();
                 }else if ($busca && $prof == 3){
                     $solicitacoes = Solicitacoe::where(
                         'curso', 'like', '%'.$busca.'%'
-                        )->whereBetween('dataSolicitacao',["$ano-07-01","$ano-12-31"])->get();
+                        )->whereBetween('data_solicitacao',["$ano-07-01","$ano-12-31"])->get();
                 }
             }
         }
@@ -277,7 +277,7 @@ class UserController extends Controller
             $html .= '<tr>';
             $html .= '<td>'.$solicitacoe->codigo.'</td>';
             $html .= '<td>'.$solicitacoe->nome.'</td>';
-            $html .= '<td>'.$solicitacoe->dataSolicitacao.'</td>';
+            $html .= '<td>'.$solicitacoe->data_solicitacao.'</td>';
             $html .= '<td>'.$solicitacoe->periodo.'</td>';
             $html .= '<td>'.$solicitacoe->curso.'</td>';
             $html .= '<td>'.$solicitacoe->disciplina.'</td>';

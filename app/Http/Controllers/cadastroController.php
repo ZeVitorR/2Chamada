@@ -26,7 +26,7 @@ class cadastroController extends Controller
         $solicitacoes->status = $request->dev;
         $solicitacoes->codigo = $request->RA;
         $solicitacoes->nome= $request->aluno;
-        $solicitacoes->dataSolicitacao = $request->data;
+        $solicitacoes->data_solicitacao = $request->data;
         $solicitacoes->curso = $request->curso;
         $solicitacoes->idCoordenador =$request->cod;
         $solicitacoes->periodo = $request->periodo;
